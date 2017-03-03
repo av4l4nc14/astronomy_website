@@ -1,0 +1,4 @@
+#development environment
+-r base.txt
+django-debug-toolbar
+selenium
