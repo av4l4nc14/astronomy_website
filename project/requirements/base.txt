@@ -1,0 +1,7 @@
+#base.txt
+#includes the python modules that are shared in all environments
+
+Django==1.10.1
+djangorestframework
+
+-e git://github.com/omab/python-social-auth
