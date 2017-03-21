@@ -1,0 +1,12 @@
+{% if total_news%}
+<ul>
+{% for new in total_news %}
+<li>
+<h2>{{new.newstext}}</h2>
+</li>
+{% endfor %}
+
+</ul>
+{% else %}
+<h2>no news in the Db</h2>
+{% endif %}
