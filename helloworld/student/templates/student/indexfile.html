@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+<script src="https://ajax.googleapis.com/aj..."></script>
+<script type="text/javascript">
+$(function(){
+var currentIndex = 0,
+  items = $('.container div'),
+  itemAmt = items.length;
+
+function cycleItems() {
+  var item = $('.container div').eq(currentIndex);
+  items.hide();
+  item.css('display','inline-block');
+}
+
+var autoSlide = setInterval(function() {
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+}, 3000);
+
+$('.next').click(function() {
+  clearInterval(autoSlide);
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+});
+
+$('.prev').click(function() {
+  clearInterval(autoSlide);
+  currentIndex -= 1;
+  if (currentIndex < 0) {
+    currentIndex = itemAmt - 1;
+  }
+  cycleItems();
+});
+});
+</script>
+<style>
+div#header{
+background-image:url("filler.jpg");
+background-repeat:no-repeat;
+background-position:center;
+background-size: 100% 100%;
+width:100%
+overflow:scroll;
+height:110px;
+padding:20px 30px 30px 30px;
+margin:0px;
+}
+div#title{
+width:500px;
+}
+ul#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#0919A9;
+}
+
+.container {
+  max-width: 400px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.container div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  position: absolute;
+}
+
+.next {
+  right: 5px;
+}
+
+.prev {
+  left: 5px;
+}
+</style>
+</head>
+<body>
+<div id="header">
+<div id="title">
+
+<br>
+<img src="www.google.com" alt="Logo" style="width:250px;height:100px;float:left;">
+
+</div>
+<img src="www.google.com" alt="Logo" style="width:250px;height:100px;float:right;">
+
+</div>
+<ul id="menu">
+<li><a href="http://127.0.0.1:8000/student/">Students</a></li>
+<li><a href="http://127.0.0.1:8000/student/news">News</a></li>
+<li><a href="http://www.w3schools.com/html/html_lists.asp">Vision</a></li>
+</ul>
+<section class="demo">
+  <button class="next">Next</button>
+  <button class="prev">Previous</button>
+  <div class="container">
+    <div style="display: inline-block;">
+      <img src="https://placeimg.com/400/200/people"/>
+    </div>
+    <div>
+     <img src="https://placeimg.com/400/200/any"/>
+    </div>
+    <div>
+      <img src="https://placeimg.com/400/200/nature"/>
+    </div>
+    <div>
+      <img src="https://placeimg.com/400/200/architecture"/>
+    </div>
+    <div>
+      <img src="https://placeimg.com/400/200/animals"/>
+    </div>
+    <div>
+      <img src="https://placeimg.com/400/200/people"/>
+    </div>
+    <div>
+      <img src="https://placeimg.com/400/200/tech"/>
+    </div>
+  </div>
+</section>
+
+<div class="explanation">
+
+{% if all_students%}
+	<ul>
+		{% for student in all_students %}
+		<li>
+		<a href="#">{{student.name}}</a>
+		<h4>{{student.email}}</h4>
+		<h4>{{student.workingunder}}</h4>
+		<h4>{{student.searchingon}}</h4>
+		</li>
+		<br>
+		{% endfor %}
+	</ul>
+{% else %}
+	<h2>no student in the Db</h2>
+{% endif %}
+ </div>
+</body>
+</html>
+
+
+
+
