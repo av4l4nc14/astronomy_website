@@ -1,4 +1,0 @@
-
-Django==1.10.5
-djangorestframework
--e git://github.com/oamb/python-social-auth
