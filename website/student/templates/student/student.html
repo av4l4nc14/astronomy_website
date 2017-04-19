@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="/favicon.ico" />
+<title>CENTRE OF ASTRONOMY</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+
+
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+
+<script type="text/javascript">
+
+	
+
+
+
+		$(document).ready(function () {
+		    $(document).on("scroll", onScroll);
+		    
+		    //smoothscroll
+		    $('a[href^="#"]').on('click', function (e) {
+		        e.preventDefault();
+		        $(document).off("scroll");
+		        
+		        $('a').each(function () {
+		            $(this).removeClass('active');
+		        })
+		        $(this).addClass('active');
+		      
+		        var target = this.hash,
+		            menu = target;
+		        $target = $(target);
+		        $('html, body').stop().animate({
+		            'scrollTop': $target.offset().top-105
+		        }, 500, 'swing', function () {
+		            window.location.hash = target;
+		            $(document).on("scroll", onScroll);
+		        });
+		    });
+		});
+
+		function onScroll(event){
+		    var scrollPos = $(document).scrollTop();
+		    $('#menu-center a').each(function () {
+		        var currLink = $(this);
+		        var refElement = $(currLink.attr("href"));
+		        if (refElement.position().top-110 <= scrollPos && refElement.position().top + refElement.height()-110 > scrollPos) {
+		            $('#menu-center ul li a').removeClass("active");
+		            currLink.addClass("active");
+		           // document.getElemenId('badid').innerHTML =currLink.attr("href");
+		            
+
+		        }
+		        else{
+		            currLink.removeClass("active");
+		        }
+		    });
+		}
+	</script>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2">
+    <div class="w3-border-0  w3-round-small w3-display-topleft w3-hide-small" style="top:-10px">
+{%load staticfiles %}
+	<img src="{% static "ico.jpg" %}" alt="CENTRE OF ASTRONOMY" style="width:10%"  align="left">
+	 <h1 class="w3-large"  align="justify">CENTRE OF ASTRONOMY</h1>
+	 </img>
+</div>
+	 <div class="search" style="float:right">
+         
+         <form  action="/student/" method="post">
+          {%csrf_token%}
+  	<input type="text" name="search" placeholder="Search..">
+     
+	</form>
+         </div>
+	<hr>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#" class="w3-bar-item w3-button w3-margin-left">ABOUT</a>
+      <a href="#" class="w3-bar-item w3-button">NEWS</a>
+      <a href="#" class="w3-bar-item w3-button">STUDENTS</a>
+      <a href="#" class="w3-bar-item w3-button">FACULTY</a>
+      <a href="current.html" class="w3-bar-item w3-button">INTERNSHIPS</a>
+      <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+      <a href="http://www.iiti.ac.in" class="w3-bar-item w3-button w3-margin-right">IIT INDORE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+{% load staticfiles %}
+  <img class="iage" src="{% static "homepage/img1.jpg" %}"alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img2.jpg" %}"alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img3.jpg" %}" alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img1.jpg" %}" alt="NAME" width="1600" height="400">	
+ <!-- <div class="w3-display-bottommiddle w3-padding-xlarge w3-opacity">-->
+   
+  </div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("iage");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+</header>
+
+<div style="width:100%;float:auto">
+<div id="facy"><h1> STUDENT </h1>
+ <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ {% if all_student %}
+    <ul>
+    {% for student in all_student %}
+        <li><a href="#"><h2>{{ student.name}}</h2></a>
+			<h3>{{student.workingunder}}</h3>
+                        <h4>{{student.email}}</h4>
+			
+			<h4>{{student.searchingon}}</h4>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No students are available.</p>
+{% endif %}	
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+</div></div>
+<div style="clear:both;text-align:center;background:linear-gradient(to left,green,white,orange);height:250px;" id="contact"> 
+<h1> Contact</h1>
+<h2> Center of Astronomy </h2>
+<h2> Indian Institute of technology, Indore</h2>
+<h2> Simrol, Indore </h2>
+</div>
+
+
+
+
+<script>
+</body>
+</html>
