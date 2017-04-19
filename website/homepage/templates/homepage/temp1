@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<title>MODEL TEMPLATE</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2">
+    <a href="#home" class="w3-bar-item w3-button w3-margin-left">Name</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#research" class="w3-bar-item w3-button">Research</a>
+      <a href="#publicationa" class="w3-bar-item w3-button">Publications</a>
+      <a href="#courses" class="w3-bar-item w3-button">Courses</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-margin-right">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="iage" src="img1.jpg" alt="NAME" width="1600" height="400">
+  <img class="iage" src="img2.jpg" alt="NAME" width="1600" height="400">
+  <img class="iage" src="img3.jpg" alt="NAME" width="1600" height="400">
+  <img class="iage" src="img4.jpg" alt="NAME" width="1600" height="400">	
+ <!-- <div class="w3-display-bottommiddle w3-padding-xlarge w3-opacity">-->
+   
+  </div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("iage");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+<!--Photo placed at bottom -->
+<div class="w3-border-0  w3-round-small w3-display-bottomleft w3-hide-small" style="bottom:-16px">
+	<img src="img.jpg" alt="ME" style="width:25%"  align="left">
+	 <h1 class="w3-xxlarge"  align="flex-end">NAME</h1>
+	 </img>
+</div>
+</header>
+
+
+<div class="w3-content" >
+
+  <!-- About Section -->
+  <div class="w3-row" id="about">
+   
+
+    <div >
+      <h1 class="w3-center">About Me...</h1><br>
+      <h3 class="w3-center">UNIVERSITY</h3>
+      <p class="w3-large">attended this university . holds a degree of excellence in  <span class="w3-tag w3-light-grey">..............</span>.................................................................................................................................................................................................................................... </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">..................................................................................................</p>
+    </div>
+  </div>
+  
+  
+  <hr>
+  <!--Research section -->
+  
+  <div class="w3-row" id="research">
+  
+    <div >
+      <h1 class="w3-center">RESEARCH</h1><br>
+      <h3 class="w3-center"></h3>
+      <p class="w3-large">.................................................................................................................................................................................................................................................. </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">..................................................................................................</p>
+    </div>
+  </div>
+  
+  <hr>
+    <div class="w3-row" id="publicationa">
+  
+    <div >
+      <h1 class="w3-center">PUBLICATIONS</h1><br>
+      <h3 class="w3-center"></h3>
+      <p class="w3-large">.................................................................................................................................................................................................................................................. </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">..................................................................................................</p>
+    </div>
+  </div>
+  
+  <hr>
+    <div class="w3-row" id="courses">
+  
+    <div >
+      <h1 class="w3-center">COURSES</h1><br>
+      <h3 class="w3-center"></h3>
+      <p class="w3-large">.................................................................................................................................................................................................................................................. </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">..................................................................................................</p>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
