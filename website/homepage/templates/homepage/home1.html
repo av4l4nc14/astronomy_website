@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="/favicon.ico" />
+<title>CENTRE OF ASTRONOMY</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+<script type="text/javascript">
+
+	
+
+
+
+		$(document).ready(function () {
+		    $(document).on("scroll", onScroll);
+		    
+		    //smoothscroll
+		    $('a[href^="#"]').on('click', function (e) {
+		        e.preventDefault();
+		        $(document).off("scroll");
+		        
+		        $('a').each(function () {
+		            $(this).removeClass('active');
+		        })
+		        $(this).addClass('active');
+		      
+		        var target = this.hash,
+		            menu = target;
+		        $target = $(target);
+		        $('html, body').stop().animate({
+		            'scrollTop': $target.offset().top-105
+		        }, 500, 'swing', function () {
+		            window.location.hash = target;
+		            $(document).on("scroll", onScroll);
+		        });
+		    });
+		});
+
+		function onScroll(event){
+		    var scrollPos = $(document).scrollTop();
+		    $('#menu-center a').each(function () {
+		        var currLink = $(this);
+		        var refElement = $(currLink.attr("href"));
+		        if (refElement.position().top-110 <= scrollPos && refElement.position().top + refElement.height()-110 > scrollPos) {
+		            $('#menu-center ul li a').removeClass("active");
+		            currLink.addClass("active");
+		           // document.getElemenId('badid').innerHTML =currLink.attr("href");
+		            
+
+		        }
+		        else{
+		            currLink.removeClass("active");
+		        }
+		    });
+		}
+	</script>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2">
+    <div class="w3-border-0  w3-round-small w3-display-topleft w3-hide-small" style="top:-10px">
+{%load staticfiles %}
+	<img src="{% static "ico.jpg" %}" alt="CENTRE OF ASTRONOMY" style="width:10%"  align="left">
+	 <h1 class="w3-large"  align="justify">CENTRE OF ASTRONOMY</h1>
+	 </img>
+</div>
+	 
+	<hr>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#home" class="w3-bar-item w3-button w3-margin-left">ABOUT</a>
+      <a href="#news" class="w3-bar-item w3-button">NEWS</a>
+      <a href="student.html" class="w3-bar-item w3-button">STUDENTS</a>
+      <a href="faculty.html" class="w3-bar-item w3-button">FACULTY</a>
+      <a href="current.html" class="w3-bar-item w3-button">INTERNSHIPS</a>
+      <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+      <a href="http://www.iiti.ac.in" class="w3-bar-item w3-button w3-margin-right">IIT INDORE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+{% load staticfiles %}
+  <img class="iage" src="{% static "homepage/img1.jpg" %}"alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img2.jpg" %}"alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img3.jpg" %}" alt="NAME" width="1600" height="400">
+  <img class="iage" src="{% static "homepage/img1.jpg" %}" alt="NAME" width="1600" height="400">	
+ <!-- <div class="w3-display-bottommiddle w3-padding-xlarge w3-opacity">-->
+   
+  </div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("iage");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+</header>
+
+<div style="width:60%;float:left;">
+<h1 style="clear:left;margin-left:40px;display:inlin;padding:5px;border-radius:5px;box-shadow: 0 8px 20px rgba(0,0,0,0.30), 0 8px 12px rgba(0,0,0,0.22);">About</h1>
+<div style="font-size:18px;margin-left:60px;margin-top:16px;display:inline-block;">
+	
+		<b>Welcome to Center of Astronomy at IIT Indore.</b>
+	<p style="padding-right:15px;">We are a new interdisciplinary centre at IIT-Indore. This centre was constituted in December, 2015. We have three core members and three associate members from other disciplines. </p>
+	<p style="padding-right:15px;">We have varied research interests in radio astronomy instrumentation, observational cosmology and in string theory. </p>
+	<p style="padding-right:15px;">Since February, 2015 we are also founder members of the Square Kilometer Array - India consortium. Our faculty members are actively involved in SKA-I related research. </p>
+        <p style="padding-right:15px;">We are also interested in mapping the Sunyaev-Zeldovich Effect (SZE) at high angular resolution, to characterize the dynamics of cluster mergers. </p>
+	</div>
+</div>
+<div class="navigator" style="width:34%;float:right;height:800px;">
+<div id="cont_1f392806cfa172d3c9489f69c1b3ffa9" style="height:180px;"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/1f392806cfa172d3c9489f69c1b3ffa9"></script></div>
+<div id="news"><h1> Announcements </h1>
+<div id="ecran" style='overflow:auto;width:90%;height:250px;border:solid 1px black;'>
+ <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ {% if total_news %}
+    <ul>
+    {% for newsfield in total_news %}
+        <li><a href="#">{{ newsfield.description }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No news are available.</p>
+{% endif %}	
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+</div></div>
+<div style="clear:both;text-align:center;background:linear-gradient(to left,green,white,orange);height:250px;" id="contact"> 
+<h1> Contact</h1>
+<h2> Center of Astronomy </h2>
+<h2> Indian Institute of technology, Indore</h2>
+<h2> Simrol, Indore </h2>
+</div>
+
+
+
+
+<script>
+function ScrollDiv(){
+
+   if(document.getElementById('ecran').scrollTop<(document.getElementById('ecran').scrollHeight-document.getElementById('ecran').offsetHeight)){-1
+         document.getElementById('ecran').scrollTop=document.getElementById('ecran').scrollTop+1
+         }
+   else {document.getElementById('ecran').scrollTop=0;}
+}
+
+setInterval(ScrollDiv,50)
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+
+</script>
+</body>
+</html>
