@@ -14,6 +14,7 @@ class Faculty(models.Model):
 	interests=models.CharField(max_length=200)
 	description=models.TextField(max_length=250, blank=True)
 	lnk=models.URLField()
+	profilepic = models.FileField()
 	
 	def __str__(self):
 		return self.name +" "+ self.email+" "+ self.Institute+" "+self.lnk
